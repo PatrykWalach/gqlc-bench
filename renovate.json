@@ -1,11 +1,8 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "packageRules": [
-    { "matchPackageNames": ["/relay/"], "groupName": "relay" }
-  ],
-  "forkProcessing": "enabled"
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended"],
+	"lockFileMaintenance": { "enabled": true },
+	"packageRules": [{ "matchPackageNames": ["/relay/"], "groupName": "relay" }],
+	"postUpdateOptions": ["yarnDedupeFewer"],
+	"forkProcessing": "enabled"
 }
