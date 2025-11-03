@@ -45,7 +45,7 @@
     "react-dom": "^17.0.2",
     "relay-compiler": "^16.0.0",
     "relay-runtime": "^16.0.0",
-    "require-context": "github:bojidar-bg/require-context",
+    "require-context": "https://github.com/bojidar-bg/require-context/archive/1e779871a2cccd9bd1da85a43482365c1fb964a2.tar.gz",
     "shelljs": "^0.8.0",
     "source-map-support": "^0.5.6",
     "tslib": "~1.9.0",

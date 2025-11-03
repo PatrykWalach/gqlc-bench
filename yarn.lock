@@ -3513,7 +3513,7 @@ __metadata:
     react-dom: ^17.0.2
     relay-compiler: ^16.0.0
     relay-runtime: ^16.0.0
-    require-context: "github:bojidar-bg/require-context"
+    require-context: "https://github.com/bojidar-bg/require-context/archive/1e779871a2cccd9bd1da85a43482365c1fb964a2.tar.gz"
     shelljs: ^0.8.0
     source-map-support: ^0.5.6
     ts-loader: ^4.4.1
@@ -6214,12 +6214,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"require-context@github:bojidar-bg/require-context":
+"require-context@https://github.com/bojidar-bg/require-context/archive/1e779871a2cccd9bd1da85a43482365c1fb964a2.tar.gz":
   version: 1.1.0
-  resolution: "require-context@https://github.com/bojidar-bg/require-context.git#commit=1e779871a2cccd9bd1da85a43482365c1fb964a2"
+  resolution: "require-context@https://github.com/bojidar-bg/require-context/archive/1e779871a2cccd9bd1da85a43482365c1fb964a2.tar.gz"
   dependencies:
     node-dir: ^0.1.17
-  checksum: d4c1d8cd80586a723fb5aa01b09d96983c9ba38eb698cede371aefcda4944a16f753d108bf382bf73b0d9a56a6af43526d35f37398719bba98dcdb5030618278
+  checksum: afd4360a3c90c08c07ed6c3c8e12614b43166bef3e0d1b349d7f3120a8cec7d0b702671204253f31788c823262bdb273d8b10a35d09fbfb90b6c8b04e5d98e36
   languageName: node
   linkType: hard
 
