@@ -1,0 +1,65 @@
+name: Bench
+
+on:
+  push:
+    branches:
+      - renovate/**
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bench-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  bench-web:
+    runs-on: ubuntu-latest
+    name: Web
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: package.json
+          cache: 'yarn'
+
+      - name: Install dependencies 📦
+        run: yarn install --frozen-lockfile
+
+      - name: Compile
+        run: yarn compile
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: report
+          path: dist
+  bench-cli:
+    runs-on: ubuntu-latest
+    name: CLI
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: package.json
+          cache: 'yarn'
+
+      - name: Install dependencies 📦
+        run: yarn install --frozen-lockfile
+
+      - name: Compile
+        run: yarn compile-ts
+      - name: Cli
+        run: yarn cli
