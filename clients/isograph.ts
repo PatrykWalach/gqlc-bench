@@ -134,14 +134,18 @@ export class Isograph<
 	async read({
 		operation,
 	}: IsographExample<TReadFromStore>): Promise<ReadResult<object>> {
-		throw new Error("Method not implemented.")
+		return {
+      data: null
+    }
 	}
 
 	async readFragment(
 		{ fragment, variables }: IsographExample<TReadFromStore>,
 		fragmentInstance: Fragment
 	): Promise<ReadResult<object>> {
-		throw new Error("Method not implemented.")
+		return {
+      data: null
+    }
 	}
 
 	async write({ operation, response }: IsographExample<TReadFromStore>) {
