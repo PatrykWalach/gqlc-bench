@@ -4,5 +4,8 @@
   "lockFileMaintenance": {
     "enabled": true
   },
+  "packageRules": [
+    { "matchPackageNames": ["/relay/"], "groupName": "relay" }
+  ],
   "forkProcessing": "enabled"
 }
