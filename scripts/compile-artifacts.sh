@@ -12,6 +12,7 @@ for DIRECTORY in $DIRECTORIES; do
   mkdir $DIRECTORY/__artifacts__
   # compile artifacts
   yarn relay $DIRECTORY/relay.config.json
+  yarn isograph --config $DIRECTORY/isograph.config.json
   
   # remove raw query, move generated root artifact and rename
   rm $DIRECTORY/operation.gql.ts

@@ -1,0 +1,6 @@
+{
+  "$schema": "../../node_modules/@isograph/compiler/isograph-config-schema.json",
+  "project_root": ".",
+  "schema": "./schema.gql",
+  "options": {}
+}

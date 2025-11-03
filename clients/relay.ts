@@ -1,112 +1,145 @@
-import packageInfo from 'relay-runtime/package.json';
+import packageInfo from "relay-runtime/package.json"
 
 import type {
-  Snapshot,
-  Disposable,
-  OperationDescriptor,
-  ConcreteRequest,
-} from 'relay-runtime';
+	Snapshot,
+	Disposable,
+	OperationDescriptor,
+	ConcreteRequest,
+	ReaderFragment,
+} from "relay-runtime"
 import {
-  Environment,
-  Network,
-  Store,
-  RecordSource,
-  getRequest,
-  createOperationDescriptor,
-  createReaderSelector
-} from 'relay-runtime'
+	Environment,
+	Network,
+	Store,
+	RecordSource,
+	getRequest,
+	createOperationDescriptor,
+	createReaderSelector,
+} from "relay-runtime"
 
-import { Client, SingleExample, Observer, RawExample, ReadResult, Fragment, RawFragment } from '../src';
+import {
+	Client,
+	SingleExample,
+	Observer,
+	RawExample,
+	ReadResult,
+	Fragment,
+	RawFragment,
+} from "../src"
+
+declare module "../src/Example" {
+	export interface SingleRawExample {
+		relayArtifact?: ConcreteRequest
+	}
+
+	export interface RawFragment {
+		relayArtifact?: ReaderFragment
+		ownerRelayArtifact?: ConcreteRequest
+	}
+
+	export interface RawPartial {
+		relayArtifact: ConcreteRequest
+	}
+}
 
 class RelayObserver implements Observer {
-  private _mostRecentResult?: any = null;
-  private _disposable: Disposable;
+	private _mostRecentResult?: any = null
+	private _disposable: Disposable
 
-  constructor(client: Environment, operation: OperationDescriptor) {
-    const initialSnapshot = client.lookup(operation.fragment);
-    this._onNewSnapshot(initialSnapshot);
-    this._disposable = client.subscribe(initialSnapshot, this._onNewSnapshot);
-  }
+	constructor(client: Environment, operation: OperationDescriptor) {
+		const initialSnapshot = client.lookup(operation.fragment)
+		this._onNewSnapshot(initialSnapshot)
+		this._disposable = client.subscribe(initialSnapshot, this._onNewSnapshot)
+	}
 
-  _onNewSnapshot = (snapshot: Snapshot) => {
-    this._mostRecentResult = {
-      data: snapshot.data,
-    };
-  };
+	_onNewSnapshot = (snapshot: Snapshot) => {
+		this._mostRecentResult = { data: snapshot.data }
+	}
 
-  unsubscribe() {
-    return this._disposable.dispose();
-  }
+	unsubscribe() {
+		return this._disposable.dispose()
+	}
 
-  mostRecentResult() {
-    return this._mostRecentResult;
-  }
+	mostRecentResult() {
+		return this._mostRecentResult
+	}
 }
 
 interface RelayFragmentExample extends Omit<RawFragment, "operation"> {
-  operation: OperationDescriptor;
+	operation: OperationDescriptor
 }
 
 interface RelayExample extends SingleExample {
-  operation: OperationDescriptor;
-  variables?: object;
-  relayArtifact: ConcreteRequest;
-  fragment?: RelayFragmentExample;
+	operation: OperationDescriptor
+	variables?: object
+	relayArtifact: ConcreteRequest
+	fragment?: RelayFragmentExample
 }
 
 export class Relay extends Client {
-  static metadata = {
-    name: `Relay (v${(packageInfo as any).version})`,
-  };
+	static metadata = { name: `Relay (v${(packageInfo as any).version})` }
 
-  private _client = new Environment({
-    network: Network.create(async () => {
-      throw new Error(`end-to-end queries are not supported`);
-    }),
-    store: new Store(new RecordSource()),
-  });
+	private _client = new Environment({
+		network: Network.create(async () => {
+			throw new Error(`end-to-end queries are not supported`)
+		}),
+		store: new Store(new RecordSource()),
+	})
 
-  transformRawExample(rawExample: RawExample): RelayExample {
-    const request = getRequest(rawExample.relayArtifact);
-    const operation = createOperationDescriptor(request, rawExample.variables);
+	transformRawExample(rawExample: RawExample): RelayExample {
+		const request = getRequest(rawExample.relayArtifact)
+		const operation = createOperationDescriptor(request, rawExample.variables)
 
-    let fragment: RelayFragmentExample;
-    if ("fragment" in rawExample) {
-      const fragmentOwnerRequest = getRequest(rawExample.fragment.ownerRelayArtifact);
-      const fragmentOwnerOperation = createOperationDescriptor(fragmentOwnerRequest, rawExample.variables)
+		let fragment: RelayFragmentExample
+		if ("fragment" in rawExample) {
+			const fragmentOwnerRequest = getRequest(
+				rawExample.fragment.ownerRelayArtifact
+			)
+			const fragmentOwnerOperation = createOperationDescriptor(
+				fragmentOwnerRequest,
+				rawExample.variables
+			)
 
-      fragment = {
-        operation: fragmentOwnerOperation,
-        relayArtifact: rawExample.fragment.relayArtifact,
-        fragmentPath: rawExample.fragment.fragmentPath
-      }
-    }
+			fragment = {
+				operation: fragmentOwnerOperation,
+				relayArtifact: rawExample.fragment.relayArtifact,
+				fragmentPath: rawExample.fragment.fragmentPath,
+			}
+		}
 
-    return {
-      operation,
-      response: rawExample.response,
-      variables: rawExample.variables,
-      relayArtifact: rawExample.relayArtifact,
-      fragment
-    };
-  }
+		return {
+			operation,
+			response: rawExample.response,
+			variables: rawExample.variables,
+			relayArtifact: rawExample.relayArtifact,
+			fragment,
+		}
+	}
 
-  async read({ operation }: RelayExample) {
-    const res = this._client.lookup(operation.fragment);
-    return (!res.data || res.isMissingData) ? { data: null } : { data: res.data };
-  }
+	async read({ operation }: RelayExample) {
+		const res = this._client.lookup(operation.fragment)
+		return !res.data || res.isMissingData ? { data: null } : { data: res.data }
+	}
 
-  async readFragment({ fragment, variables }: RelayExample, fragmentInstance: Fragment): Promise<ReadResult<object>> {
-    const selector = createReaderSelector(fragment.relayArtifact, fragmentInstance.id, variables, fragment.operation.request)
-    const res = this._client.lookup(selector);
-    return (!res.data || res.isMissingData) ? { data: null } : { data: res.data };
-  }
+	async readFragment(
+		{ fragment, variables }: RelayExample,
+		fragmentInstance: Fragment
+	): Promise<ReadResult<object>> {
+		const selector = createReaderSelector(
+			fragment.relayArtifact,
+			fragmentInstance.id,
+			variables,
+			fragment.operation.request
+		)
+		const res = this._client.lookup(selector)
+		return !res.data || res.isMissingData ? { data: null } : { data: res.data }
+	}
 
-  async write({ operation, response }: RelayExample) {
-    this._client.commitPayload(operation, response);
-  }
+	async write({ operation, response }: RelayExample) {
+		this._client.commitPayload(operation, response)
+	}
 
-  observe({ operation }: RelayExample) {
-    return new RelayObserver(this._client, operation);
-  }
+	observe({ operation }: RelayExample) {
+		return new RelayObserver(this._client, operation)
+	}
 }
