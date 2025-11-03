@@ -2,7 +2,11 @@
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["config:recommended"],
 	"lockFileMaintenance": { "enabled": true },
-	"packageRules": [{ "matchPackageNames": ["/relay/"], "groupName": "relay" }],
+	"packageRules": [
+		{ "matchPackageNames": ["/relay/"], "groupName": "relay" },
+		{ "matchPackageNames": ["/lodash/"], "groupName": "lodash" },
+		{ "matchPackageNames": ["/bluebird/"], "groupName": "bluebird" }
+	],
 	"postUpdateOptions": ["yarnDedupeFewer"],
 	"forkProcessing": "enabled"
 }
