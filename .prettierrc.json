@@ -1,0 +1,9 @@
+{
+  "semi": false,
+  "plugins": ["@prettier/plugin-oxc"],
+  "useTabs": true,
+  "endOfLine": "auto",
+  "trailingComma": "es5",
+  "experimentalOperatorPosition": "start",
+  "objectWrap": "collapse"
+}
