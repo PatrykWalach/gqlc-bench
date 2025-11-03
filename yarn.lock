@@ -78,15 +78,15 @@ __metadata:
   linkType: hard
 
 "@convoy/dapper@npm:^2.0.104":
-  version: 2.0.104
-  resolution: "@convoy/dapper@npm:2.0.104"
+  version: 2.0.120
+  resolution: "@convoy/dapper@npm:2.0.120"
   dependencies:
-    hyphenate-style-name: ^1.0.2
+    hyphenate-style-name: 1.0.2
     inline-style-prefixer: ^2.0.5
     lodash: ^4.17.4
     tslib: ^1.4.0
     unitless-css-property: ^1.0.2
-  checksum: 8a722303b7383f496f7fb8781934f95f0e640a3de40c92108e4c4e408d11f0bbc7713e19b1166ef5af064d579d247b229fcbbe850853fc87b9e46230b7152440
+  checksum: 4f416b0323eca8f459d0fd4be4cf7b2ff507342705085d55cad960dc623e1ecc8e83dfe8debfc7d32d647eb571f45a82eefb7cf753e69698bf394b04df297c87
   languageName: node
   linkType: hard
 
@@ -3867,7 +3867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hyphenate-style-name@npm:^1.0.1, hyphenate-style-name@npm:^1.0.2":
+"hyphenate-style-name@npm:1.0.2, hyphenate-style-name@npm:^1.0.1":
   version: 1.0.2
   resolution: "hyphenate-style-name@npm:1.0.2"
   checksum: 8d2ea53a6b55a13a01117efd21b35a6dc8ea3ee453d41f4968cf2df0801f3e3be7d38c0acfe61688c31d817bed6bc807cf15ce0d4c88565e5761b2da3eb6813c
