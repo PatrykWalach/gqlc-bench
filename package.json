@@ -73,5 +73,11 @@
     "webpack-dev-server": "^4.9.3",
     "webpack-visualizer-plugin": "^0.1.11"
   },
-  "packageManager": "yarn@3.2.1"
+  "devEngines": {
+    "packageManager": {
+      "name": "yarn",
+      "version": "3.2.1",
+      "onFail": "download"
+    }
+  }
 }
