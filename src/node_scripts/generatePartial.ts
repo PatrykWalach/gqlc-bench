@@ -82,7 +82,7 @@ exampleDirs.forEach((exampleDir) => {
 	const relayRaw = `import graphql from 'babel-plugin-relay/macro';\ngraphql\`\n${query}\n\``
 	writeFileSync(`./examples/${exampleDir.name}/operation.gql.ts`, relayRaw)
 
-	const isographRaw = `import iso from '@iso';\n${field(query, "./")};`
+	const isographRaw = `import { iso } from './__isograph/iso';\n${field(query, "./")};`
 	writeFileSync(
 		`./examples/${exampleDir.name}/isographArtifact.graphql.ts`,
 		isographRaw
@@ -105,12 +105,12 @@ exampleDirs.forEach((exampleDir) => {
 			relayRawFragment
 		)
 
-		const isographRawFragment = `import iso from '@iso';\n${field(fragment, "./")};`
+		const isographRawFragment = `import { iso } from './__isograph/iso';\n${field(fragment, "./")};`
 		writeFileSync(
 			`./examples/${exampleDir.name}/fragment_isographArtifact.graphql.ts`,
 			isographRawFragment
 		)
-		const isographRawFragmentOwner = `import iso from '@iso';\n${field(fragmentOwner, "./")};`
+		const isographRawFragmentOwner = `import { iso } from './__isograph/iso';\n${field(fragmentOwner, "./")};`
 		writeFileSync(
 			`./examples/${exampleDir.name}/fragmentOwner_isographArtifact.graphql.ts`,
 			isographRawFragmentOwner
@@ -142,7 +142,7 @@ exampleDirs.forEach((exampleDir) => {
 
 		const relayTemplate = `import graphql from 'babel-plugin-relay/macro';\ngraphql\`\n${partial}\n\``
 
-		const isographTemplate = `import iso from '@iso';\n${field(partial, "../../")};`
+		const isographTemplate = `import { iso } from '../../__isograph/iso';\n${field(partial, "../../")};`
 
 		writeFileSync(
 			`./examples/${exampleDir.name}/__partials__/isograph/partial${partials.length - i < 10 ? "0" + String(partials.length - i) : partials.length - i}.gql.ts`,

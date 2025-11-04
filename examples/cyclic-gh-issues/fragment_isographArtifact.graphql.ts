@@ -1,4 +1,4 @@
-import iso from '@iso';
+import { iso } from './__isograph/iso';
 export const fragmentRepository = iso(`field Repository.fragmentRepository {
   __typename
   id

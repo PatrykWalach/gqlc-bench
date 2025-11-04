@@ -1,4 +1,4 @@
-import iso from '@iso';
+import { iso } from './__isograph/iso';
 export const fragmentOwnerQuery = iso(`field Query.fragmentOwnerQuery {
   organization(login: "facebook") {
     repositories(first: 10) {

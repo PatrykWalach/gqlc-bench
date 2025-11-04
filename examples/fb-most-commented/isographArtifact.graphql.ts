@@ -1,4 +1,4 @@
-import iso from '@iso';
+import { iso } from './__isograph/iso';
 export const operationQuery = iso(`field Query.operationQuery {
   organization(login: "facebook") {
     __typename

@@ -2,5 +2,5 @@
 	"$schema": "../../node_modules/@isograph/compiler/isograph-config-schema.json",
 	"project_root": ".",
 	"schema": "./schema.gql",
-	"options": { "on_invalid_id_type": "ignore" }
+	"options": { "on_invalid_id_type": "ignore", "no_babel_transform": true }
 }

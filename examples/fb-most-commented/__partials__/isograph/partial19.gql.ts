@@ -1,4 +1,4 @@
-import iso from '@iso';
+import { iso } from '../../__isograph/iso';
 export const partial19Query = iso(`field Query.partial19Query {
   organization(login: "facebook") {
     repositories(first: 50) {

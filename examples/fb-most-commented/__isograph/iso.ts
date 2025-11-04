@@ -308,13 +308,64 @@ export function iso<T>(
   param: T & MatchesWhitespaceAndString<'entrypoint Query.partial25Query', T>
 ): typeof entrypoint_Query__partial25Query;
 
-export function iso(_isographLiteralText: string):
+export function iso(isographLiteralText: string):
   | IdentityWithParam<any>
   | IdentityWithParamComponent<any>
   | IsographEntrypoint<any, any, any>
 {
-  throw new Error('iso: Unexpected invocation at runtime. Either the Babel transform ' +
-      'was not set up, or it failed to identify this call site. Make sure it ' +
-      'is being used verbatim as `iso`. If you cannot use the babel transform, ' + 
-      'set options.no_babel_transform to true in your Isograph config. ');
+  switch (isographLiteralText) {
+    case 'entrypoint Query.operationQuery':
+      return entrypoint_Query__operationQuery;
+    case 'entrypoint Query.partial01Query':
+      return entrypoint_Query__partial01Query;
+    case 'entrypoint Query.partial02Query':
+      return entrypoint_Query__partial02Query;
+    case 'entrypoint Query.partial03Query':
+      return entrypoint_Query__partial03Query;
+    case 'entrypoint Query.partial04Query':
+      return entrypoint_Query__partial04Query;
+    case 'entrypoint Query.partial05Query':
+      return entrypoint_Query__partial05Query;
+    case 'entrypoint Query.partial06Query':
+      return entrypoint_Query__partial06Query;
+    case 'entrypoint Query.partial07Query':
+      return entrypoint_Query__partial07Query;
+    case 'entrypoint Query.partial08Query':
+      return entrypoint_Query__partial08Query;
+    case 'entrypoint Query.partial09Query':
+      return entrypoint_Query__partial09Query;
+    case 'entrypoint Query.partial10Query':
+      return entrypoint_Query__partial10Query;
+    case 'entrypoint Query.partial11Query':
+      return entrypoint_Query__partial11Query;
+    case 'entrypoint Query.partial12Query':
+      return entrypoint_Query__partial12Query;
+    case 'entrypoint Query.partial13Query':
+      return entrypoint_Query__partial13Query;
+    case 'entrypoint Query.partial14Query':
+      return entrypoint_Query__partial14Query;
+    case 'entrypoint Query.partial15Query':
+      return entrypoint_Query__partial15Query;
+    case 'entrypoint Query.partial16Query':
+      return entrypoint_Query__partial16Query;
+    case 'entrypoint Query.partial17Query':
+      return entrypoint_Query__partial17Query;
+    case 'entrypoint Query.partial18Query':
+      return entrypoint_Query__partial18Query;
+    case 'entrypoint Query.partial19Query':
+      return entrypoint_Query__partial19Query;
+    case 'entrypoint Query.partial20Query':
+      return entrypoint_Query__partial20Query;
+    case 'entrypoint Query.partial21Query':
+      return entrypoint_Query__partial21Query;
+    case 'entrypoint Query.partial22Query':
+      return entrypoint_Query__partial22Query;
+    case 'entrypoint Query.partial23Query':
+      return entrypoint_Query__partial23Query;
+    case 'entrypoint Query.partial24Query':
+      return entrypoint_Query__partial24Query;
+    case 'entrypoint Query.partial25Query':
+      return entrypoint_Query__partial25Query;
+  } 
+  return (clientFieldResolver: any) => clientFieldResolver;
 }
