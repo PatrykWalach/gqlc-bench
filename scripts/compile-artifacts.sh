@@ -49,32 +49,6 @@ for DIRECTORY in $DIRECTORIES; do
   # compile artifacts
   yarn isograph --config $DIRECTORY/isograph.config.json
   
-  # remove raw query, move generated root artifact and rename
-  rm $DIRECTORY/operation.iso.ts
-  # find operation artefacts names and move them
-  OPERATION=$(find $DIRECTORY/__isograph/ -name 'operation*Query.graphql.ts' -maxdepth 1 | head -n 1)
-  if [[ ! -z "$OPERATION" ]]; then
-    mv $DIRECTORY/__isograph/${OPERATION##*/} $DIRECTORY/isographArtifact.graphql.ts
-  fi
-  # TODO: Find out if we actually need these remaining artifacts, or they can be deleted
-  # remove remaining fragment artifacts that we don't need
-  rm $DIRECTORY/__isograph/operation*.graphql.ts
-
-  # remove raw fragment, move generated fragment and rename
-  rm $DIRECTORY/fragment.iso.ts
-  # find fragment artefacts names and move them
-  FRAGMENTOWNER=$(find $DIRECTORY/__isograph/ -name 'fragmentOwner*Query.graphql.ts' -maxdepth 1 | head -n 1)
-  if [[ ! -z "$FRAGMENTOWNER" ]]; then
-    mv $DIRECTORY/__isograph/${FRAGMENTOWNER##*/} $DIRECTORY/fragmentOwner_isographArtifact.graphql.ts
-  fi
-  FRAGMENT=$(find $DIRECTORY/__isograph/ -name 'fragment*.graphql.ts' -maxdepth 1 | head -n 1)
-  if [[ ! -z "$FRAGMENT" ]]; then
-    mv $DIRECTORY/__isograph/${FRAGMENT##*/} $DIRECTORY/fragment_isographArtifact.graphql.ts
-  fi
-
   # remove all temp versions of partial isograph artifacts and replace them with the compiled ones
   rm -rf $DIRECTORY/__partials__/isograph/*
-  mv $DIRECTORY/__isograph/* $DIRECTORY/__partials__/isograph/
-  # remove temp folder
-  rm -rf $DIRECTORY/__isograph
 done
