@@ -1,7 +1,7 @@
 import type { EagerReaderArtifact, ReaderAst } from '@isograph/react';
 import { Query__operationQuery__param } from './param_type';
 import { Query__operationQuery__output_type } from './output_type';
-import { operationQuery as resolver } from '../../../operation.iso';
+import { operationQuery as resolver } from '../../../isographArtifact.graphql';
 
 const readerAst: ReaderAst<Query__operationQuery__param> = [
   {

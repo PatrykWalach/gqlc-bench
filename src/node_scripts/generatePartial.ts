@@ -13,7 +13,6 @@ import {
 	type FieldNode,
 	type FragmentDefinitionNode,
 	type OperationDefinitionNode,
-	type StringValueNode,
 } from "graphql"
 import { generatePartialExamplesFromQuery } from "../partial"
 
@@ -22,7 +21,7 @@ const exampleDirs = readdirSync("./examples", { withFileTypes: true }).filter(
 	(dirent) => dirent.isDirectory()
 )
 
-function field(document: string) {
+function field(document: string, path: string) {
 	let out: string[] = []
 	for (const operation of parse(document).definitions) {
 		if (
@@ -36,10 +35,6 @@ function field(document: string) {
 		const rootType = getRootType(operation)
 		const fieldName = operation.name.value
 
-		if (operation.kind === "OperationDefinition") {
-			out.push(`iso(\`entrypoint ${rootType}.${fieldName}\`)`)
-		}
-
 		out.push(
 			`export const ${fieldName} = iso(\`field ${rootType}.${fieldName} ${print(
 				visit(operation.selectionSet, {
@@ -52,6 +47,16 @@ function field(document: string) {
 				})
 			)}\`)(({ data }) => data)`
 		)
+		out.push(
+			`export * from '${path}__isograph/${rootType}/${fieldName}/resolver_reader'`
+		)
+
+		if (operation.kind === "OperationDefinition") {
+			out.push(`iso(\`entrypoint ${rootType}.${fieldName}\`)`)
+			out.push(
+				`export * from '${path}__isograph/${rootType}/${fieldName}/entrypoint'`
+			)
+		}
 	}
 
 	return out.join(";\n")
@@ -77,8 +82,11 @@ exampleDirs.forEach((exampleDir) => {
 	const relayRaw = `import graphql from 'babel-plugin-relay/macro';\ngraphql\`\n${query}\n\``
 	writeFileSync(`./examples/${exampleDir.name}/operation.gql.ts`, relayRaw)
 
-	const isographRaw = `import iso from '@iso';\n${field(query)};`
-	writeFileSync(`./examples/${exampleDir.name}/operation.iso.ts`, isographRaw)
+	const isographRaw = `import iso from '@iso';\n${field(query, "./")};`
+	writeFileSync(
+		`./examples/${exampleDir.name}/isographArtifact.graphql.ts`,
+		isographRaw
+	)
 
 	// read fragment if exists
 	if (existsSync(`./examples/${exampleDir.name}/fragment.gql`)) {
@@ -97,10 +105,15 @@ exampleDirs.forEach((exampleDir) => {
 			relayRawFragment
 		)
 
-		const isographRawFragment = `import iso from '@iso';\n${field(fragment)};\n${field(fragmentOwner)};`
+		const isographRawFragment = `import iso from '@iso';\n${field(fragment, "./")};`
 		writeFileSync(
-			`./examples/${exampleDir.name}/fragment.iso.ts`,
+			`./examples/${exampleDir.name}/fragment_isographArtifact.graphql.ts`,
 			isographRawFragment
+		)
+		const isographRawFragmentOwner = `import iso from '@iso';\n${field(fragmentOwner, "./")};`
+		writeFileSync(
+			`./examples/${exampleDir.name}/fragmentOwner_isographArtifact.graphql.ts`,
+			isographRawFragmentOwner
 		)
 	}
 
@@ -129,7 +142,7 @@ exampleDirs.forEach((exampleDir) => {
 
 		const relayTemplate = `import graphql from 'babel-plugin-relay/macro';\ngraphql\`\n${partial}\n\``
 
-		const isographTemplate = `import iso from '@iso';\n${field(partial)};`
+		const isographTemplate = `import iso from '@iso';\n${field(partial, "../../")};`
 
 		writeFileSync(
 			`./examples/${exampleDir.name}/__partials__/isograph/partial${partials.length - i < 10 ? "0" + String(partials.length - i) : partials.length - i}.gql.ts`,

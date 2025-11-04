@@ -1,7 +1,7 @@
 import type { EagerReaderArtifact, ReaderAst } from '@isograph/react';
 import { Repository__fragmentRepository__param } from './param_type';
 import { Repository__fragmentRepository__output_type } from './output_type';
-import { fragmentRepository as resolver } from '../../../fragment.iso';
+import { fragmentRepository as resolver } from '../../../fragment_isographArtifact.graphql';
 
 const readerAst: ReaderAst<Repository__fragmentRepository__param> = [
   {

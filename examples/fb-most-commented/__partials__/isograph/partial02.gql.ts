@@ -1,28 +1,26 @@
 import iso from '@iso';
-iso(`entrypoint Query.operationQuery`);
-export const operationQuery = iso(`field Query.operationQuery {
+export const partial02Query = iso(`field Query.partial02Query {
   organization(login: "facebook") {
-    __typename
     repositories(first: 50) {
-      __typename
       nodes {
-        __typename
-        createdAt
         homepageUrl
+        __typename
         issues(first: 50, states: null, orderBy: {field: null, direction: null}) {
           __typename
           nodes {
             __typename
-            createdAt
             id
-            title
             comments {
               __typename
-              totalCount
             }
           }
         }
       }
+      __typename
     }
+    __typename
   }
 }`)(({ data }) => data);
+export * from '../../__isograph/Query/partial02Query/resolver_reader';
+iso(`entrypoint Query.partial02Query`);
+export * from '../../__isograph/Query/partial02Query/entrypoint';

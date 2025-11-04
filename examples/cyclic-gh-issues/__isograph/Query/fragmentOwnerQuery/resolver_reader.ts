@@ -1,7 +1,7 @@
 import type { EagerReaderArtifact, ReaderAst } from '@isograph/react';
 import { Query__fragmentOwnerQuery__param } from './param_type';
 import { Query__fragmentOwnerQuery__output_type } from './output_type';
-import { fragmentOwnerQuery as resolver } from '../../../fragment.iso';
+import { fragmentOwnerQuery as resolver } from '../../../fragmentOwner_isographArtifact.graphql';
 import Repository__fragmentRepository__resolver_reader from '../../Repository/fragmentRepository/resolver_reader';
 
 const readerAst: ReaderAst<Query__fragmentOwnerQuery__param> = [

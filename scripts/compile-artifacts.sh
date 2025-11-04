@@ -50,5 +50,5 @@ for DIRECTORY in $DIRECTORIES; do
   yarn isograph --config $DIRECTORY/isograph.config.json
   
   # remove all temp versions of partial isograph artifacts and replace them with the compiled ones
-  rm -rf $DIRECTORY/__partials__/isograph/*
+  # rm -rf $DIRECTORY/__partials__/isograph/*
 done
