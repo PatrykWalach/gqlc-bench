@@ -528,10 +528,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fast-stats@npm:^0.0.29":
-  version: 0.0.29
-  resolution: "@types/fast-stats@npm:0.0.29"
-  checksum: c4a607e066fa83fae5d52ee1a835040d8a0ec461ab28063a2ee8230ffd4d3bfbdf482c11a04689b3da453344103340d038f01ef6489ac2b4c9499d6c62e570c5
+"@types/fast-stats@npm:^0.0.35":
+  version: 0.0.35
+  resolution: "@types/fast-stats@npm:0.0.35"
+  checksum: 04bb0bdb0fc0ebc96082ea043c358082b2e0b3a0943621d3a234ae93f5aaa7199ed45dbeae221df704b36efb45cd168fc926e7e5ac0531dbaaec591cfa366d7e
   languageName: node
   linkType: hard
 
@@ -3053,10 +3053,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-stats@npm:^0.0.3":
-  version: 0.0.3
-  resolution: "fast-stats@npm:0.0.3"
-  checksum: 7334d49d3c224a2c7e54bcb8d88f9d05ba9e7b51939ebfaf3a4d66b1061528b09daf53bc12811b85dc4cc5b4da43d3f1c7b693f592d167d4cc45f1878721246d
+"fast-stats@npm:^0.0.7":
+  version: 0.0.7
+  resolution: "fast-stats@npm:0.0.7"
+  checksum: e276e45ebe2549f2061462bb21832cedbce4d4c774e6ccdefe2fcf40f7df72292f2c3df5ca24f448456e08a5871a8c50f0bec86e654b0e146dc9b00a9f70a761
   languageName: node
   linkType: hard
 
@@ -3483,7 +3483,7 @@ __metadata:
     "@prettier/plugin-oxc": ^0.0.4
     "@types/bluebird": ^3.5.36
     "@types/chroma-js": ^1.3.5
-    "@types/fast-stats": ^0.0.29
+    "@types/fast-stats": ^0.0.35
     "@types/lodash": ^4.14.110
     "@types/node": ^24.0.0
     "@types/react": ^18.0.14
@@ -3499,7 +3499,7 @@ __metadata:
     eslint-plugin-import: ^2.11.0
     eslint-plugin-typescript: ^0.12.0
     fast-random: ^2.0.4
-    fast-stats: ^0.0.3
+    fast-stats: ^0.0.7
     graphql: ^16.5.0
     graphql-tag: ^2.12.6
     html-webpack-plugin: ^5.5.0
