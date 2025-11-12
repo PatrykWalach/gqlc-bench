@@ -16,6 +16,7 @@
     "dev": "./scripts/dev.sh",
     "update-pages": "./scripts/update-pages.sh",
     "release": "./scripts/release.sh",
+    "lint": "eslint --cache . --fix",
     "relay": "relay-compiler",
     "isograph": "iso"
   },
