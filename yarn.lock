@@ -7337,14 +7337,14 @@ __metadata:
   linkType: hard
 
 "typescript-eslint-parser@npm:^15.0.0":
-  version: 15.0.0
-  resolution: "typescript-eslint-parser@npm:15.0.0"
+  version: 15.0.1
+  resolution: "typescript-eslint-parser@npm:15.0.1"
   dependencies:
     lodash.unescape: 4.0.1
     semver: 5.5.0
   peerDependencies:
     typescript: "*"
-  checksum: 7e703301927ac1c840ece1c8aa21bbc23539c1b75928424a8b64e4ad61dd7a0d1fe006749509016eae291222a5d0adde060bd1844c135621eed2744d223dc55a
+  checksum: 2ea91cd5f2cb0467ee0034fa0750562d9f6c95016ab6d9ef657293d5417a4438aeecdfe415b87bda2cc6659debb9e9e1fc9c5571b50301ccef39766d84b3c4cd
   languageName: node
   linkType: hard
 
