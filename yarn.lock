@@ -6813,17 +6813,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "source-map-support@npm:0.5.6"
-  dependencies:
-    buffer-from: ^1.0.0
-    source-map: ^0.6.0
-  checksum: f0d7a0a74edc0ceefa262116fe586b8bd6bfd4254635a629464a9c3aa75d0e9d3fb81114df31f96ad4cb9f810eba9c2497e788a46dd094577e239ed239f8a715
-  languageName: node
-  linkType: hard
-
-"source-map-support@npm:~0.5.20":
+"source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
