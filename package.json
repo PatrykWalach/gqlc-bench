@@ -30,7 +30,7 @@
     "@types/bluebird": "^3.5.36",
     "babel-plugin-relay": "^20.0.0",
     "bluebird": "^3.7.2",
-    "browser-process-hrtime": "^0.1.2",
+    "browser-process-hrtime": "^1.0.0",
     "chroma-js": "^3.0.0",
     "fast-random": "^2.0.4",
     "fast-stats": "^0.0.7",
