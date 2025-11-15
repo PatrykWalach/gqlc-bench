@@ -7556,8 +7556,8 @@ __metadata:
   linkType: hard
 
 "unexpected@npm:^10.38.0":
-  version: 10.38.0
-  resolution: "unexpected@npm:10.38.0"
+  version: 10.40.2
+  resolution: "unexpected@npm:10.40.2"
   dependencies:
     array-changes: 3.0.1
     array-changes-async: 3.0.1
@@ -7568,7 +7568,7 @@ __metadata:
     leven: 2.1.0
     magicpen: 5.12.0
     unexpected-bluebird: 2.9.34-longstack2
-  checksum: 8a68f0792026806d89209a6766c81fbd9e7048186d7fbb6ce14678473d1c3299878558c847259d750b0dbd66d706a19cb1bad1cef302d962e063c42a51b09d36
+  checksum: 3eb485b62ab3ec03b79cb065b2b677d0625d0bd5cba67aa1d975bfe5e03a4a70ee92cca61cca5cb5019e1e6f4e7e9f67adb1bba6a07026b3522a97949769e98e
   languageName: node
   linkType: hard
 
