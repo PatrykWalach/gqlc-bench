@@ -4639,14 +4639,14 @@ __metadata:
   linkType: hard
 
 "le-table@npm:^6.1.8":
-  version: 6.1.8
-  resolution: "le-table@npm:6.1.8"
+  version: 6.1.11
+  resolution: "le-table@npm:6.1.11"
   dependencies:
     ansi-parser: ^3.2.1
     cli-box: ^6.0.0
     overlap: ^2.2.1
     ul: ^5.2.1
-  checksum: 7924ccc73e06f6838c3d0f06ee6dccb5cd5d5fc1159527927dbda29e167b52984b988a4d66d68ab4ea6d90bf9b7cb2b5a6c7cd00b83e5cfe808f2a32ba7a377d
+  checksum: 4e1c4965a056220d8be89c62fc04e29ee8c8dec6e74f3b68736e1bd722c62e72758dbd37fd5c3392d97e3aa41a27c61edd90c2bba08782b5ab6acfae2e2bb18c
   languageName: node
   linkType: hard
 
