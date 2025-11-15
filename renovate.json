@@ -5,6 +5,7 @@
 	"packageRules": [
 		{ "matchPackageNames": ["/relay/"], "groupName": "relay" },
 		{ "matchPackageNames": ["/lodash/"], "groupName": "lodash" },
+		{ "matchPackageNames": ["/eslint/"], "groupName": "eslint" },
 		{ "matchPackageNames": ["/bluebird/"], "groupName": "bluebird" }
 	],
 	"postUpdateOptions": ["yarnDedupeFewer"],
