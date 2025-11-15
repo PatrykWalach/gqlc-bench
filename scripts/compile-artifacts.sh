@@ -12,7 +12,6 @@ for DIRECTORY in $DIRECTORIES; do
   mkdir $DIRECTORY/__artifacts__
   # compile artifacts
   yarn relay $DIRECTORY/relay.config.json
-  yarn isograph --config $DIRECTORY/isograph.config.json
   
   # remove raw query, move generated root artifact and rename
   rm $DIRECTORY/operation.gql.ts
@@ -42,4 +41,14 @@ for DIRECTORY in $DIRECTORIES; do
   mv $DIRECTORY/__artifacts__/* $DIRECTORY/__partials__/relay/
   # remove temp folder
   rm -rf $DIRECTORY/__artifacts__
+done
+
+
+# loop through example dirs and run compiler for each
+for DIRECTORY in $DIRECTORIES; do
+  # compile artifacts
+  yarn isograph --config $DIRECTORY/isograph.config.json
+  
+  # remove all temp versions of partial isograph artifacts and replace them with the compiled ones
+  # rm -rf $DIRECTORY/__partials__/isograph/*
 done

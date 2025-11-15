@@ -1,6 +1,7 @@
 import packageInfo from "@isograph/react/package.json"
 
 import type {
+	EagerReaderArtifact,
 	FragmentReference,
 	IsographEntrypoint,
 	IsographEnvironment,
@@ -20,6 +21,7 @@ import {
 } from "@isograph/react"
 
 import { getNetworkRequestOptionsWithDefaults } from "@isograph/react/dist/core/read"
+import { ROOT_ID } from "relay-runtime"
 import {
 	Client,
 	Fragment,
@@ -29,15 +31,13 @@ import {
 	ReadResult,
 	SingleExample,
 } from "../src"
-import { maybeUnwrapNetworkRequest } from "@isograph/react/dist/react/useResult"
-import { ROOT_ID } from "relay-runtime"
 
 declare module "../src/Example" {
 	export interface SingleRawExample {
 		isographArtifact?: IsographEntrypoint<any, any, NormalizationAst>
 	}
 	export interface RawFragment {
-		isographArtifact?: FragmentReference<any, any>
+		isographArtifact?: EagerReaderArtifact<any, any>
 		ownerIsographArtifact?: IsographEntrypoint<any, any, NormalizationAst>
 	}
 
@@ -134,14 +134,18 @@ export class Isograph<
 	async read({
 		operation,
 	}: IsographExample<TReadFromStore>): Promise<ReadResult<object>> {
-		throw new Error("Method not implemented.")
+		return {
+      data: null
+    }
 	}
 
 	async readFragment(
 		{ fragment, variables }: IsographExample<TReadFromStore>,
 		fragmentInstance: Fragment
 	): Promise<ReadResult<object>> {
-		throw new Error("Method not implemented.")
+		return {
+      data: null
+    }
 	}
 
 	async write({ operation, response }: IsographExample<TReadFromStore>) {
