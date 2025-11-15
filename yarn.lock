@@ -2709,12 +2709,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-typescript@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "eslint-plugin-typescript@npm:0.12.0"
+"eslint-plugin-typescript@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "eslint-plugin-typescript@npm:0.14.0"
   dependencies:
     requireindex: ~1.1.0
-  checksum: 00f9171a6a24ee85e97f47ba9b8f9cd7ab1d5bc82711268b07237a769aa96f9f6a3b12a744827b44a63b52ee9c13d929daf0cb663979e6957b16742c7ea13c24
+  checksum: 1c13387e740822a6fcc049789c0dd57f06ab227171337bfbf52d266c59e436b5cd094a9717ca14e732d6121730db3ba6bbf57554a540e482e3b23c0f4f2fe187
   languageName: node
   linkType: hard
 
@@ -3498,7 +3498,7 @@ __metadata:
     eslint: ^4.19.0
     eslint-plugin-eslint-comments: ^2.0.0
     eslint-plugin-import: ^2.11.0
-    eslint-plugin-typescript: ^0.12.0
+    eslint-plugin-typescript: ^0.14.0
     fast-random: ^2.0.4
     fast-stats: ^0.0.7
     graphql: ^16.5.0
