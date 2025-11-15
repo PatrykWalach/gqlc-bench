@@ -71,7 +71,7 @@
     "eslint-plugin-typescript": "^0.14.0",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "latest",
-    "raw-loader": "^0.5.1",
+    "raw-loader": "^4.0.0",
     "ts-loader": "^4.4.1",
     "typescript-eslint-parser": "^22.0.0",
     "webpack": "^5.73.0",
