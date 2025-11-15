@@ -49,7 +49,7 @@
     "require-context": "https://github.com/bojidar-bg/require-context/archive/1e779871a2cccd9bd1da85a43482365c1fb964a2.tar.gz",
     "shelljs": "^0.8.0",
     "source-map-support": "^0.5.6",
-    "tslib": "~1.14.0",
+    "tslib": "~2.8.0",
     "typescript": "~4.9.0",
     "unexpected": "^10.38.0",
     "uuid": "^8.3.2",
