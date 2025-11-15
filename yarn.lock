@@ -7374,15 +7374,15 @@ __metadata:
   linkType: hard
 
 "ts-loader@npm:^4.4.1":
-  version: 4.4.1
-  resolution: "ts-loader@npm:4.4.1"
+  version: 4.5.0
+  resolution: "ts-loader@npm:4.5.0"
   dependencies:
     chalk: ^2.3.0
     enhanced-resolve: ^4.0.0
     loader-utils: ^1.0.2
     micromatch: ^3.1.4
     semver: ^5.0.1
-  checksum: acc77c9bf51b8441176efa41b5d541af478c86b4a22a61a0e4ea98cfbfd5b7d17fd9f6ce1f2da0143fa163527d17938df46c8f8df4447ddac3b9eac39c73d02e
+  checksum: a15d6f8f990e6ef42587d282cff017b4001a95aa594babd621cae7b2661fa9655bf5163ba2e4bbf98be6e92106b1cba099c9d2614a6182e57e56d3a1a8e10a9f
   languageName: node
   linkType: hard
 
