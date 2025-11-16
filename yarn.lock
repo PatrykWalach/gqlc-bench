@@ -1428,16 +1428,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-runtime@npm:6.26.0":
-  version: 6.26.0
-  resolution: "babel-runtime@npm:6.26.0"
-  dependencies:
-    core-js: ^2.4.0
-    regenerator-runtime: ^0.11.0
-  checksum: 8aeade94665e67a73c1ccc10f6fd42ba0c689b980032b70929de7a6d9a12eb87ef51902733f8fefede35afea7a5c3ef7e916a64d503446c1eedc9e3284bd3d50
-  languageName: node
-  linkType: hard
-
 "balanced-match@npm:^1.0.0":
   version: 1.0.0
   resolution: "balanced-match@npm:1.0.0"
@@ -1877,13 +1867,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^2.4.0":
-  version: 2.5.7
-  resolution: "core-js@npm:2.5.7"
-  checksum: 3d7431887a32895d56207b015e3e309e490827854568b0760579cb013fb1943fd61e84baed904cdebbc92b813a40db9b11e7aa23228d72f1d95bc4b42aa16836
-  languageName: node
-  linkType: hard
-
 "core-util-is@npm:~1.0.0":
   version: 1.0.2
   resolution: "core-util-is@npm:1.0.2"
@@ -2072,10 +2055,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff@npm:1.1.0":
-  version: 1.1.0
-  resolution: "diff@npm:1.1.0"
-  checksum: 9a3c9acd87cbc69952b23e518f30a6bac7a1459190a1eabf7f5992f8a4a2b8f5d7904c4ce4571603de1eeacfaa01e22f5e8ee8147d0f29fb1d558f41f21b5ad4
+"diff@npm:4.0.2":
+  version: 4.0.2
+  resolution: "diff@npm:4.0.2"
+  checksum: f2c09b0ce4e6b301c221addd83bf3f454c0bc00caa3dd837cf6c127d6edf7223aa2bbe3b688feea110b7f262adbfc845b757c44c8a9f8c0c5b15d8fa9ce9d20d
   languageName: node
   linkType: hard
 
@@ -2672,7 +2655,7 @@ __metadata:
     source-map-support: ^0.5.6
     tslib: ~2.8.0
     typescript: ~4.9.0
-    unexpected: ^10.38.0
+    unexpected: ^11.0.0
     uuid: ^8.3.2
     write-file-p: ^1.0.8
   bin:
@@ -3314,13 +3297,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"leven@npm:2.1.0":
-  version: 2.1.0
-  resolution: "leven@npm:2.1.0"
-  checksum: f7b4a01b15c0ee2f92a04c0367ea025d10992b044df6f0d4ee1a845d4a488b343e99799e2f31212d72a2b1dea67124f57c1bb1b4561540df45190e44b5b8b394
-  languageName: node
-  linkType: hard
-
 "lines-and-columns@npm:^1.1.6":
   version: 1.2.4
   resolution: "lines-and-columns@npm:1.2.4"
@@ -3391,14 +3367,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magicpen@npm:5.12.0":
-  version: 5.12.0
-  resolution: "magicpen@npm:5.12.0"
+"magicpen@npm:^6.2.1":
+  version: 6.2.4
+  resolution: "magicpen@npm:6.2.4"
   dependencies:
     ansi-styles: 2.0.0
     color-diff: 0.1.7
-    supports-color: 1.2.0
-  checksum: 59a04d095f58cd67975d56712e4f7cbe381ef9e618e02a925089018e457780015bf761c54e12b5c7bd8c60e37fe6c0edf7d7f9801b5051664730c1cfa043be25
+  checksum: c23697852c6c2663e8be6c9560cf0a128532dd3bbdc36db0f572cc6a7a02617e7227fccc08a9d6501305b76e97c54850c66b8a6c2726a6aad2617e2aa3bf2ded
   languageName: node
   linkType: hard
 
@@ -4347,13 +4322,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.11.0":
-  version: 0.11.1
-  resolution: "regenerator-runtime@npm:0.11.1"
-  checksum: 3c97bd2c7b2b3247e6f8e2147a002eb78c995323732dad5dc70fac8d8d0b758d0295e7015b90d3d444446ae77cbd24b9f9123ec3a77018e81d8999818301b4f4
-  languageName: node
-  linkType: hard
-
 "regenerator-runtime@npm:^0.13.4":
   version: 0.13.9
   resolution: "regenerator-runtime@npm:0.13.9"
@@ -4970,15 +4938,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:1.2.0":
-  version: 1.2.0
-  resolution: "supports-color@npm:1.2.0"
-  bin:
-    supports-color: cli.js
-  checksum: fdf629be7c7dce9ee86bfa94d3d3d4a29360bcf55e65ce17e1464a40bf9fbaad4987ebed4408dd5ce7bd3e75ee35035472ea3eec5c8aa09276f3ef21f4d15fb8
-  languageName: node
-  linkType: hard
-
 "supports-color@npm:^5.3.0":
   version: 5.4.0
   resolution: "supports-color@npm:5.4.0"
@@ -5163,6 +5122,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ukkonen@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "ukkonen@npm:1.4.0"
+  checksum: b9c328d656a7129cd692fe0ec587c4a546a136ff9c315e04115d5fce60aa4d03c87b1f937d9784bda85938c5bab84c9caf287a0c946cbf0d08ed5a7ba401ccc4
+  languageName: node
+  linkType: hard
+
 "ul@npm:5.0.0":
   version: 5.0.0
   resolution: "ul@npm:5.0.0"
@@ -5207,20 +5173,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unexpected@npm:^10.38.0":
-  version: 10.40.2
-  resolution: "unexpected@npm:10.40.2"
+"unexpected@npm:^11.0.0":
+  version: 11.15.1
+  resolution: "unexpected@npm:11.15.1"
   dependencies:
     array-changes: 3.0.1
     array-changes-async: 3.0.1
-    babel-runtime: 6.26.0
     detect-indent: 3.0.1
-    diff: 1.1.0
+    diff: 4.0.2
     greedy-interval-packer: 1.2.0
-    leven: 2.1.0
-    magicpen: 5.12.0
+    magicpen: ^6.2.1
+    ukkonen: ^1.4.0
     unexpected-bluebird: 2.9.34-longstack2
-  checksum: 3eb485b62ab3ec03b79cb065b2b677d0625d0bd5cba67aa1d975bfe5e03a4a70ee92cca61cca5cb5019e1e6f4e7e9f67adb1bba6a07026b3522a97949769e98e
+  checksum: d6a22b64b3507170d28f4344c59bebc0049bbedf841a6e5a79058e777884860009d800c5c92b857cfe99f56318c6e19f40e3dd96bae20eb0e64aff29fbee9b4e
   languageName: node
   linkType: hard
 
