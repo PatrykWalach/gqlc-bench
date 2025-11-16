@@ -132,5 +132,5 @@ declare module 'unexpected' {
   }
 
   const expect: Expect;
-  export = expect;
+  export default expect;
 }

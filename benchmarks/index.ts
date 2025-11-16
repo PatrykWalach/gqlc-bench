@@ -8,4 +8,4 @@ const benchmarks: BenchmarkConstructor[] = benchmarkContext
   .map(path => benchmarkContext(path))
   .map(exports => exports.default);
 
-export = benchmarks;
+export default benchmarks;
