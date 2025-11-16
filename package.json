@@ -57,6 +57,8 @@
   },
   "devDependencies": {
     "@prettier/plugin-oxc": "^0.0.4",
+    "@rspack/cli": "^1.6.3",
+    "@rspack/core": "^1.6.3",
     "@types/chroma-js": "^3.0.0",
     "@types/fast-stats": "^0.0.35",
     "@types/lodash": "^4.14.110",
