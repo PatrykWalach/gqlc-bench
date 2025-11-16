@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
+		"strictPropertyInitialization": true,
 		"importHelpers": true,
 		"jsx": "react",
 		"strictFunctionTypes": true,
