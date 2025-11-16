@@ -13,7 +13,7 @@
     "compile-artifacts": "./scripts/compile-artifacts.sh",
     "compile-ts": "tsc",
     "compile-web": "rspack --config ./src/reporters/web/webpack.config.js --mode production",
-		"knip": "knip --include dependencies",
+    "knip": "knip --include dependencies",
     "dev": "rspack serve --config ./src/reporters/web/webpack.config.js",
     "update-pages": "./scripts/update-pages.sh",
     "release": "./scripts/release.sh",
