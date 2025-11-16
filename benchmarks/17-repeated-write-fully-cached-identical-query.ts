@@ -1,6 +1,6 @@
 import expect from 'unexpected';
 
-import { Benchmark, ReadResult } from '../src';
+import { Benchmark } from '../src';
 
 export default class WriteWithCompleteCache extends Benchmark {
   static metadata = {

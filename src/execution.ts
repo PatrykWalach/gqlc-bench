@@ -1,8 +1,8 @@
 import performanceNow from 'performance-now';
 import { Stats } from 'fast-stats';
 
-import { Benchmark, BenchmarkMetadata, BenchmarkConstructor } from './Benchmark';
-import { Client, ClientMetadata, ClientConstructor } from './Client';
+import { Benchmark, BenchmarkConstructor } from './Benchmark';
+import { Client, ClientConstructor } from './Client';
 import { Event } from './Event';
 import { Example, RawExample } from './Example';
 
@@ -38,13 +38,13 @@ export interface SuitePromise extends Promise<void> {
   cancel(): void;
 }
 
-const DEFAULT_CONFIG: Configuration = {
-  verifyPasses: 2,
-  warmups: 10,
-  minSamples: 25,
-  maxDurationMs: 15 /* seconds */ * 1e3,
-  targetRelativeMarginOfError: 5.0,
-};
+// const DEFAULT_CONFIG: Configuration = {
+//   verifyPasses: 2,
+//   warmups: 10,
+//   minSamples: 25,
+//   maxDurationMs: 15 /* seconds */ * 1e3,
+//   targetRelativeMarginOfError: 5.0,
+// };
 
 const customConfig: Configuration = {
   verifyPasses: 1,
@@ -91,7 +91,7 @@ export async function _runSuite(
   benchmarkClasses: BenchmarkConstructor[],
   clientClasses: ClientConstructor[],
 ) {
-  const { reporter, rawExample } = context;
+  const { reporter } = context;
   reporter({ ...context.eventCommon, subject: Subject.SUITE, type: Type.START });
 
   for (const BenchmarkClass of benchmarkClasses) {
@@ -149,7 +149,7 @@ async function runClientBenchmark(
 
   const client: Client = new ClientClass();
 
-  const { title, schema, partials } = rawExample;
+  const { title, partials } = rawExample;
 
   // Preprocess & Verify
 
@@ -390,7 +390,7 @@ export function saveData(name: string, stat: number) {
     try {
       // parse JSON string to JSON object
       updatedData = JSON.parse(data);
-    } catch (error) {
+    } catch {
       updatedData = {};
     }
 

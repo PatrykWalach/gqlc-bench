@@ -29,7 +29,7 @@ import {
 	ReadResult,
 	SingleExample,
 } from "../src"
-import { maybeUnwrapNetworkRequest } from "@isograph/react/dist/react/useResult"
+
 import { ROOT_ID } from "relay-runtime"
 
 declare module "../src/Example" {
@@ -120,7 +120,7 @@ export class Isograph<
 					.selections,
 		}
 
-		let fragment: IsographFragmentExample
+		let fragment: IsographFragmentExample = undefined
 
 		return {
 			operation,
@@ -131,15 +131,13 @@ export class Isograph<
 		}
 	}
 
-	async read({
-		operation,
-	}: IsographExample<TReadFromStore>): Promise<ReadResult<object>> {
+	async read(_: IsographExample<TReadFromStore>): Promise<ReadResult<object>> {
 		throw new Error("Method not implemented.")
 	}
 
 	async readFragment(
-		{ fragment, variables }: IsographExample<TReadFromStore>,
-		fragmentInstance: Fragment
+		_: IsographExample<TReadFromStore>,
+		_fragmentInstance: Fragment
 	): Promise<ReadResult<object>> {
 		throw new Error("Method not implemented.")
 	}

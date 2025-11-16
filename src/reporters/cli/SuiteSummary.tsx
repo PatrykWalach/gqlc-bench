@@ -1,11 +1,11 @@
-import { Color, Component, Indent, renderToString } from 'ink';
+import { Color, Component, Indent } from 'ink';
 
 import { Table } from './Table';
 import { Summary } from '../../reporting';
 
 export class SuiteSummary extends Component<Summary> {
   render() {
-    const { title, running, canceled } = this.props;
+    const { title } = this.props;
     return (
       <div>
         <Indent size={1}>
