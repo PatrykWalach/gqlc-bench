@@ -17,7 +17,7 @@ import { Client, Fragment, Observer, SingleExample, SingleRawExample, RawFragmen
 
 class ApolloObserver implements Observer {
   private _mostRecentResult?: any = null;
-  private _subscription?: ObservableSubscription;
+  private _subscription: ObservableSubscription;
   constructor(observable: ObservableQuery<any>) {
     this._subscription = observable.subscribe(
       ({ data }) => {
@@ -65,9 +65,9 @@ export class ApolloInMemoryResultCache extends Client {
   }
 
   transformRawExample(rawExample: SingleRawExample): ApolloExample {    
-    let fragment: ApolloFragmentExample; 
+    let fragment: ApolloFragmentExample | undefined; 
     
-    if ("fragment" in rawExample) 
+    if (rawExample.fragment) 
       fragment = {
         operation: graphqlTag(rawExample.fragment.operation),
         fragmentPath: rawExample.fragment.fragmentPath
@@ -88,18 +88,18 @@ export class ApolloInMemoryResultCache extends Client {
       };
     } catch (error) {
       // Apollo throws if data is missing
-      return null;
+      return { data: null };
     }
   }
 
   async readFragment({ fragment , variables }: ApolloExample, fragmentInstance: Fragment) {
     try {      
       return {
-        data: this.apollo.readFragment({ id: `${fragmentInstance.typename}:${fragmentInstance.id}`, fragment: fragment.operation, variables }),
+        data: this.apollo.readFragment({ id: `${fragmentInstance.typename}:${fragmentInstance.id}`, fragment: fragment!.operation, variables }),
       };
     } catch (error) {
       // Apollo throws if data is missing
-      return null;
+      return { data: null };
     }
   }
 

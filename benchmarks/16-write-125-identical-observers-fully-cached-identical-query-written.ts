@@ -22,7 +22,7 @@ export default class WriteWithHundredTwentyFiveObserversAndCompleteCache extends
 
   async verify() {
     for (const observer of this.observers) {
-      expect(observer.mostRecentResult().data, 'to satisfy', this.example.response);
+      expect(observer.mostRecentResult()?.data, 'to satisfy', this.example.response);
     }
   }
 

@@ -7,7 +7,7 @@ const { Subject, Type, Phase } = Event;
 export interface Results {
   complete?: boolean;
   phase?: Event.Phase;
-  stats?: Event.ClientBenchmarkStats;
+  stats: Event.ClientBenchmarkStats;
   percentOfRange?: number;
   failure?: Event.Failure;
 }

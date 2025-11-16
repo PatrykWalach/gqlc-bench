@@ -30,7 +30,7 @@ export default class UpdateOneObserver extends Benchmark {
   }
 
   async verify() {
-    expect(this.observer.mostRecentResult().data, 'to satisfy', this.updatedResponse);
+    expect(this.observer.mostRecentResult()?.data, 'to satisfy', this.updatedResponse);
   }
 
   async teardown() {

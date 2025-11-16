@@ -16,6 +16,7 @@
 		],
 		"strictBindCallApply": true,
 		"alwaysStrict": true,
+		"strictNullChecks": true,
 		"skipLibCheck": true,
 		"module": "CommonJS",
 		"target": "es2017"

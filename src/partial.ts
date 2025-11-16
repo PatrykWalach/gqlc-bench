@@ -38,7 +38,7 @@ interface FieldSetNode extends SelectionSetNode {
  */
 export function generatePartialExamplesFromQuery(query: string): string[] {
   const document = graphqlTag(query);
-  const operation = getOperationDefinition(document);
+  const operation = getOperationDefinition(document)!;
   const leaves = findLeafPaths(document);
   const random = fastRandom(SEED);
 
@@ -71,7 +71,7 @@ export function generatePartialExamplesFromQuery(query: string): string[] {
  */
 export function restructurePartialExamples(example: RawExample): SingleRawExample[] {
   const partials: SingleRawExample[] = [];
-  Object.values(example.rawPartials).forEach(partial => {
+  Object.values(example.rawPartials!).forEach(partial => {
     const document = graphqlTag(partial.operation);
     const leaves = findLeafPaths(document);
     const partialSelectionSet = selectionSetFromLeaves(leaves);
@@ -91,7 +91,7 @@ export function restructurePartialExamples(example: RawExample): SingleRawExampl
 
 function findLeafPaths(document: DocumentNode) {
   const leaves: FieldNode[][] = [];
-  const operation = getOperationDefinition(document);
+  const operation = getOperationDefinition(document)!;
   const fragmentMap = createFragmentMap(getFragmentDefinitions(document));
   walkSelectionSetForLeaves(leaves, fragmentMap, operation.selectionSet, []);
 
@@ -126,8 +126,8 @@ function walkSelectionSetForLeaves(
 }
 
 function selectLeaves(random: fastRandom.FastRandomGenerator, leaves: FieldNode[][], selectPercent: number) {
-  const toKeep = [];
-  const toShuffle = [];
+  const toKeep: FieldNode[][] = [];
+  const toShuffle: FieldNode[][] = [];
   for (const leaf of leaves) {
     const fieldName = leaf[leaf.length - 1].name.value;
     // To appease Apollo caches, preserve entity identities.
@@ -138,7 +138,7 @@ function selectLeaves(random: fastRandom.FastRandomGenerator, leaves: FieldNode[
     }
   }
 
-  const shuffled = [];
+  const shuffled: FieldNode[][] = [];
   while (toShuffle.length) {
     const index = Math.floor(random.nextFloat() * toShuffle.length);
     const leaf = toShuffle.splice(index, 1)[0];
@@ -184,7 +184,7 @@ function mergeLeaf(selections: OnlyFieldNode[], leaf: FieldNode[]) {
     selections.push(ancestor);
   }
 
-  mergeLeaf(ancestor.selectionSet.selections, remainder);
+  mergeLeaf(ancestor.selectionSet!.selections, remainder);
 }
 
 function reduceResponse(selectionSet: FieldSetNode, response: object | any[]) {
@@ -212,7 +212,7 @@ export function populateResponse(response: object) {
   const modifiedResponse = _.cloneDeep(response);
 
   // Create a Queue and add our initial node in it
-  let q = [];
+  let q: object[] = [];
   let explored = new Set();
   q.push(modifiedResponse);
 
@@ -221,7 +221,7 @@ export function populateResponse(response: object) {
 
   // We'll continue till our queue gets empty
   while (!(q.length == 0)) {
-    let t = q.shift();
+    let t = q.shift()!;
 
     // Check every node we visit if it is an array, and if yes, populate
     // with 100 copies of first item.
@@ -235,11 +235,12 @@ export function populateResponse(response: object) {
     // 2. We filter out the nodes that have already been explored.
     // 3. Then we mark each unexplored node as explored and add it to the queue.
     let edges = typeof t == 'object' ? Object.keys(t) : t;
-    Array.isArray(edges) &&
+    if (Array.isArray(edges)) {
       edges.filter(n => !explored.has(t[n])).forEach(n => {
         explored.add(t[n]);
         q.push(t[n]);
       });
+    }
   }
 
   return modifiedResponse;

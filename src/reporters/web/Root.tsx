@@ -30,9 +30,9 @@ interface RootState {
 
 const MODES: { [key: string]: (args: { state?: RootState }) => boolean } = {
   pending: ({ state }) => !state || state.runState === RunState.PENDING,
-  running: ({ state }) => state && state.runState === RunState.RUNNING,
-  canceled: ({ state }) => state && state.runState === RunState.CANCELED,
-  complete: ({ state }) => state && state.runState === RunState.COMPLETE,
+  running: ({ state }) => state?.runState === RunState.RUNNING,
+  canceled: ({ state }) => state?.runState === RunState.CANCELED,
+  complete: ({ state }) => state?.runState === RunState.COMPLETE,
   idle: ({ state }) => !state || state.runState !== RunState.RUNNING,
 };
 
@@ -108,7 +108,7 @@ const STYLES = dapper.compile({
 });
 
 export class Root extends PureComponent<{}, RootState> {
-  private _suitePromise: SuitePromise;
+  private _suitePromise: SuitePromise | null;
   // We collect summary updates as they come in…
   private _collector?: SuiteSummaryCollector;
   private _summary?: Summary;
@@ -127,7 +127,7 @@ export class Root extends PureComponent<{}, RootState> {
   componentDidMount() {
     if (module.hot) {
       module.hot.dispose(() => {
-        this._suitePromise.cancel();
+        this._suitePromise?.cancel();
       });
     }
   }

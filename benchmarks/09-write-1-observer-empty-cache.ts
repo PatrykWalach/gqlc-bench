@@ -18,7 +18,7 @@ export default class WriteWithOneObserverAndEmptyCache extends Benchmark {
   }
 
   async verify() {
-    expect(this.observer!.mostRecentResult().data, 'to satisfy', this.example.response);
+    expect(this.observer!.mostRecentResult()?.data, 'to satisfy', this.example.response);
   }
 
   async teardown() {

@@ -161,7 +161,7 @@ async function runClientBenchmark(
   });
   const verifyStart = performanceNow();
 
-  let example: Example;
+  let example!: Example;
   try {
     const rootExample = client.transformRawExample(rawExample);
     example = {
@@ -341,7 +341,7 @@ async function runSingleBenchmarkPass(
   } catch (error) {
     context.failure = { error, phase };
     console.log('ERROR: ', error);
-    return undefined;
+    return undefined!;
   }
 }
 

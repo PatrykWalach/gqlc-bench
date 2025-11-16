@@ -17,12 +17,12 @@ export default class ReadDuplicate extends Benchmark {
   }
 
   async run() {
-    const halfQuery = this.example.partials[this.midpoint];
+    const halfQuery = this.example.partials[this.midpoint!];
     this.result = await this.client.read(halfQuery);
   }
 
   async verify() {
-    const { response } = this.example.partials[this.midpoint];
+    const { response } = this.example.partials[this.midpoint!];
     expect(this.result!.data, 'to satisfy', response);
   }
 }

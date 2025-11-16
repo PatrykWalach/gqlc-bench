@@ -92,7 +92,7 @@ interface IsographExample<TReadFromStore extends UnknownTReadFromStore>
 	extends SingleExample {
 	operation: RetainedQuery
 	variables?: object
-	isographArtifact: IsographEntrypoint<TReadFromStore, any, NormalizationAst>
+	isographArtifact?: IsographEntrypoint<TReadFromStore, any, NormalizationAst>
 	fragment?: IsographFragmentExample
 }
 
@@ -110,17 +110,17 @@ export class Isograph<
 
 	transformRawExample(rawExample: RawExample): IsographExample<TReadFromStore> {
 		const operation: RetainedQuery = {
-			variables: rawExample.variables,
+			variables: rawExample.variables!,
 			root: {
 				__link: ROOT_ID,
-				__typename: rawExample.isographArtifact.concreteType,
+				__typename: rawExample.isographArtifact!.concreteType,
 			},
 			normalizationAst:
-				rawExample.isographArtifact.networkRequestInfo.normalizationAst
+				rawExample.isographArtifact!.networkRequestInfo.normalizationAst
 					.selections,
 		}
 
-		let fragment: IsographFragmentExample
+		let fragment: IsographFragmentExample | undefined
 
 		return {
 			operation,
@@ -156,7 +156,7 @@ export class Isograph<
 	}
 
 	observe({ operation, isographArtifact }: IsographExample<TReadFromStore>) {
-		const entrypoint = isographArtifact
+		const entrypoint = isographArtifact!
 
 		switch (entrypoint.readerWithRefetchQueries.kind) {
 			case "ReaderWithRefetchQueriesLoader":

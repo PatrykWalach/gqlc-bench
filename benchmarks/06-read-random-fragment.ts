@@ -20,7 +20,7 @@ export default class RandomRead extends Benchmark {
     if ('fragment' in this.example && this.example.fragment) {      
       // find all responses which match the fragmentPath, pick a random one
       // and save it
-      const responsePool = this.example.fragment.fragmentPath
+      const responsePool = this.example.fragment.fragmentPath!
         .split('.')
         .reduce((a, b) => a[b], this.example.response) as FragmentResponse[];
       const tmp = responsePool[Math.floor(Math.random() * responsePool.length)];
