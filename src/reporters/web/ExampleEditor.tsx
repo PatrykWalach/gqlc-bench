@@ -215,7 +215,11 @@ export class ExampleEditor extends PureComponent<EditorProps, EditorState> {
       // TODO-UPGRADE: diasble this for our purposes
       throw new Error("The query editing service is currently disabled");
     } catch (error) {
-      alert(`Unable to process your query/response/schema: ${error.message}`);
+      	let message = "Unknown error"
+				if (error instanceof Error) {
+					message = error.message
+				}
+      alert(`Unable to process your query/response/schema: ${message}`);
       return;
     }
 
@@ -233,7 +237,11 @@ export class ExampleEditor extends PureComponent<EditorProps, EditorState> {
       try {
         nextExample.response = JSON.parse(editorContent);
       } catch (error) {
-        alert(`Invalid JSON in response: ${error.message}`);
+				let message = "Unknown error"
+				if (error instanceof Error) {
+					message = error.message
+				}
+				alert(`Invalid JSON in response: ${message}`)
         return;
       }
     } else if (prevSection === Section.SCHEMA) {
