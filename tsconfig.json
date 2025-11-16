@@ -4,6 +4,7 @@
 		"experimentalDecorators": true,
 		"importHelpers": true,
 		"jsx": "react",
+		"strictFunctionTypes": true,
 		"lib": [
 			"es2016",
 			"es2017.intl",

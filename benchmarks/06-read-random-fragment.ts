@@ -1,6 +1,6 @@
 import expect from 'unexpected';
 
-import { Benchmark, ReadResult, Fragment, populateResponse } from '../src';
+import { Benchmark, ReadResult, Fragment, populateResponse, type FragmentResponse } from '../src';
 
 export default class RandomRead extends Benchmark {
   static metadata = {
@@ -22,7 +22,7 @@ export default class RandomRead extends Benchmark {
       // and save it
       const responsePool = this.example.fragment.fragmentPath
         .split('.')
-        .reduce((a, b) => a[b], this.example.response);
+        .reduce((a, b) => a[b], this.example.response) as FragmentResponse[];
       const tmp = responsePool[Math.floor(Math.random() * responsePool.length)];
       this.fragment = {
         typename: tmp.__typename,
