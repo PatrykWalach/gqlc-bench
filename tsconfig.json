@@ -13,6 +13,7 @@
 			"dom",
 			"esnext.asynciterable"
 		],
+		"alwaysStrict": true,
 		"skipLibCheck": true,
 		"module": "CommonJS",
 		"target": "es2017"
