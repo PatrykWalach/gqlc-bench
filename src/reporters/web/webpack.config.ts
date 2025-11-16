@@ -99,7 +99,7 @@ export default defineConfig({
 				type: "javascript/auto",
 			},
 			// https://github.com/webpack-contrib/raw-loader#getting-started
-			{ test: /\.gql$/, loader: "raw-loader" },
+			{ test: /\.gql$/, type: "asset/source" },
 			// https://github.com/graphql/graphql-js/issues/1272
 			{ test: /\.mjs$/, include: /node_modules/, type: "javascript/auto" },
 		],
