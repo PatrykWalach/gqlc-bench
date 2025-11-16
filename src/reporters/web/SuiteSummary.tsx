@@ -34,7 +34,7 @@ export class SuiteSummary extends PureComponent<SuiteSummaryProps> {
   styles = dapper.reactTo(this, STYLES);
 
   render() {
-    const { className, title } = this.props;
+    const { className } = this.props;
 
     return (
       <table className={`${this.styles.root} ${className}`}>

@@ -84,7 +84,7 @@ export class ApolloInMemory extends Client {
       return {
         data: this.apollo.readQuery({ query: operation, variables }),
       };
-    } catch (error) {
+    } catch {
       // Apollo throws if data is missing
       return null;
     }
@@ -95,7 +95,7 @@ export class ApolloInMemory extends Client {
       return {
         data: this.apollo.readFragment({ id: `${fragmentInstance.typename}:${fragmentInstance.id}`, fragment: fragment.operation, variables }),
       };
-    } catch (error) {
+    } catch {
       // Apollo throws if data is missing
       return null;
     }

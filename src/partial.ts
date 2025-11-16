@@ -12,7 +12,7 @@ import _ from 'lodash';
 import { print } from 'graphql/language/printer'; // eslint-disable-line import/no-internal-modules
 import { DocumentNode, SelectionSetNode, FieldNode, OperationDefinitionNode, Kind } from 'graphql';
 
-import { RawExample, SingleExample, SingleRawExample } from './Example';
+import { RawExample, SingleRawExample } from './Example';
 
 // Use a consistent seed for consistent partials for a given query.
 const SEED = 12345678;
@@ -235,11 +235,12 @@ export function populateResponse(response: object) {
     // 2. We filter out the nodes that have already been explored.
     // 3. Then we mark each unexplored node as explored and add it to the queue.
     let edges = typeof t == 'object' ? Object.keys(t) : t;
-    Array.isArray(edges) &&
+    if (Array.isArray(edges)) {
       edges.filter(n => !explored.has(t[n])).forEach(n => {
         explored.add(t[n]);
         q.push(t[n]);
       });
+    }
   }
 
   return modifiedResponse;

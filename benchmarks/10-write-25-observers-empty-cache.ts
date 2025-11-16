@@ -1,6 +1,6 @@
 import expect from 'unexpected';
 
-import { Benchmark, ReadResult, Observer } from '../src';
+import { Benchmark, Observer } from '../src';
 
 export default class WriteWithTwentyFiveObserversAndEmptyCache extends Benchmark {
   static metadata = {

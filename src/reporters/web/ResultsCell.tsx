@@ -2,7 +2,7 @@ import { PureComponent } from 'react'
 import * as dapper from '@convoy/dapper';
 import chroma from 'chroma-js';
 
-import { Results, Summary } from '../../reporting';
+import { Results } from '../../reporting';
 
 const BACKGROUND_COLOR_SCALE = chroma.scale([
   chroma('#4aa54f').luminance(0.75),

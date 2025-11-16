@@ -5,7 +5,7 @@ import examples from '../../../examples';
 import clients from '../../../clients';
 import { Event } from '../../Event';
 import { Root } from './Root';
-import { runSuite, SuitePromise, Reporter } from '../../execution';
+import { runSuite, SuitePromise } from '../../execution';
 
 const [example] = examples;
 
@@ -19,14 +19,14 @@ export async function main() {
     componentEventHandler(event);
   }
 
-  let suitePromise: SuitePromise; // eslint-disable-line prefer-const
+  let suitePromise: SuitePromise; 
   function onExit() {
     if (!suitePromise) return;
     suitePromise.cancel();
   }
 
   const stopRendering = render(<Root registerEventHandler={registerEventHandler} onExit={onExit} />);  
-  const canceled = await runSuite(reporter, benchmarks, clients, example);  
+  const canceled = await (suitePromise = runSuite(reporter, benchmarks, clients, example));  
 
   // Give it a chance to render a final time.
   await new Promise(resolve => setTimeout(resolve, 0));
