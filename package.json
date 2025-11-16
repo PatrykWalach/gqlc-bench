@@ -9,7 +9,7 @@
 	"bugs": "https://github.com/convoyinc/graphql-client-benchmarks/issues",
 	"scripts": {
 		"format": "prettier . -w --cache --experimental-cli",
-		"cli": "node --expose-gc ./src/reporters/cli/entry.js",
+		"cli": "node --expose-gc ./src/reporters/cli/entry.ts",
 		"compile": "yarn compile-ts && yarn compile-web",
 		"compile-artifacts": "./scripts/compile-artifacts.sh",
 		"compile-ts": "tsc --noEmit",
