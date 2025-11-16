@@ -77,7 +77,10 @@ export default defineConfig({
 				loader: "builtin:swc-loader",
 				options: {
 					isModule: "unknown",
-					jsc: { parser: { syntax: "typescript" } },
+					jsc: {
+						parser: { syntax: "typescript" },
+						transform: { react: { runtime: "automatic" } },
+					},
 				},
 				type: "javascript/auto",
 			},
@@ -87,7 +90,10 @@ export default defineConfig({
 					loader: "builtin:swc-loader",
 					options: {
 						isModule: "unknown",
-						jsc: { parser: { syntax: "typescript", tsx: true } },
+						jsc: {
+							parser: { syntax: "typescript", tsx: true },
+							transform: { react: { runtime: "automatic" } },
+						},
 					},
 				},
 				type: "javascript/auto",
