@@ -1,3 +1,4 @@
+import { PureComponent } from 'react'
 import * as dapper from '@convoy/dapper';
 import chroma from 'chroma-js';
 
@@ -54,7 +55,7 @@ const STYLES = dapper.compile({
   },
 });
 
-export class ResultsCell extends React.PureComponent<ResultsCellProps> {
+export class ResultsCell extends PureComponent<ResultsCellProps> {
   styles = dapper.reactTo(this, STYLES, MODES);
 
   render() {

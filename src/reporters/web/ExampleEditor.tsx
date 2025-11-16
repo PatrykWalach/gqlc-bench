@@ -1,5 +1,5 @@
+import { PureComponent } from 'react'
 import * as dapper from '@convoy/dapper';
-
 import { RawExample } from '../../Example';
 // import { generatePartialExamples } from '../../partial';
 
@@ -103,7 +103,7 @@ const STYLES = dapper.compile({
   },
 });
 
-export class ExampleEditor extends React.PureComponent<EditorProps, EditorState> {
+export class ExampleEditor extends PureComponent<EditorProps, EditorState> {
   styles = dapper.reactTo(this, STYLES, MODES);
 
   _contentEditor: HTMLTextAreaElement;

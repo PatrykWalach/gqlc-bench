@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-import { RawExample, Fragment, restructurePartialExamples } from '../src';
+import { RawExample, restructurePartialExamples } from '../src';
 
 // Collect all files for examples in this directory (recursively)
 const exampleContext = require.context(
@@ -99,4 +99,4 @@ function isRawExample(value: any): value is RawExample {
   return value.title && value.operation && value.response && value.schema;
 }
 
-export = examples;
+export default examples;

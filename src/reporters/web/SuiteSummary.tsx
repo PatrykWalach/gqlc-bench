@@ -1,3 +1,4 @@
+import { PureComponent } from 'react'
 import * as dapper from '@convoy/dapper';
 
 import { Summary } from '../../reporting';
@@ -29,7 +30,7 @@ export interface SuiteSummaryProps extends Summary {
   className?: string;
 }
 
-export class SuiteSummary extends React.PureComponent<SuiteSummaryProps> {
+export class SuiteSummary extends PureComponent<SuiteSummaryProps> {
   styles = dapper.reactTo(this, STYLES);
 
   render() {

@@ -1,3 +1,4 @@
+import { PureComponent } from 'react'
 import * as dapper from '@convoy/dapper';
 
 import benchmarks from '../../../benchmarks';
@@ -106,7 +107,7 @@ const STYLES = dapper.compile({
   },
 });
 
-export class Root extends React.PureComponent<{}, RootState> {
+export class Root extends PureComponent<{}, RootState> {
   private _suitePromise: SuitePromise;
   // We collect summary updates as they come in…
   private _collector?: SuiteSummaryCollector;
