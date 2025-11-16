@@ -3,7 +3,7 @@
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
 		"importHelpers": true,
-		"jsx": "react",
+		"target": "ES2022",
 		"lib": [
 			"es2016",
 			"es2017.intl",
@@ -14,7 +14,11 @@
 			"esnext.asynciterable"
 		],
 		"skipLibCheck": true,
-		"module": "CommonJS",
-		"target": "es2017"
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"moduleDetection": "force",
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"erasableSyntaxOnly": true
 	}
 }

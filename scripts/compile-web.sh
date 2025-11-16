@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -x
 
-webpack \
+rspack \
   --config ./src/reporters/web/webpack.config.js \
   --mode production

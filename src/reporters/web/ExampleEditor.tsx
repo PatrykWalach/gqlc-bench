@@ -1,14 +1,10 @@
+import * as React from 'react'
 import * as dapper from '@convoy/dapper';
-
 import { RawExample } from '../../Example';
 // import { generatePartialExamples } from '../../partial';
 
 // Values double as display strings.
-enum Section {
-  OPERATION = 'Query',
-  RESPONSE = 'Response',
-  SCHEMA = 'Schema',
-}
+type Section = |'Query'| 'Response'| 'Schema'
 
 interface EditorProps {
   example: RawExample;
@@ -113,7 +109,7 @@ export class ExampleEditor extends React.PureComponent<EditorProps, EditorState>
 
     this.state = {
       mounted: false,
-      section: Section.OPERATION,
+      section: 'Query',
       example: { ...props.example },
     };
   }
@@ -136,11 +132,11 @@ export class ExampleEditor extends React.PureComponent<EditorProps, EditorState>
     const { section, example } = this.state;
 
     let sectionContent;
-    if (section === Section.OPERATION) {
+    if (section === 'Query') {
       sectionContent = example.operation;
-    } else if (section === Section.RESPONSE) {
+    } else if (section === 'Response') {
       sectionContent = JSON.stringify(example.response, null, 2);
-    } else if (section === Section.SCHEMA) {
+    } else if (section === 'Schema') {
       sectionContent = example.schema;
     }
 
@@ -169,7 +165,7 @@ export class ExampleEditor extends React.PureComponent<EditorProps, EditorState>
 
     return (
       <div className={this.styles.tabs}>
-        {[Section.OPERATION, Section.RESPONSE, Section.SCHEMA].map(section => (
+        {(['Query', 'Response', 'Schema'] as const).map(section => (
           <button
             key={section}
             className={`${this.styles.tab} ${section === activeSection ? this.styles.activeTab : ''}`}
@@ -227,16 +223,16 @@ export class ExampleEditor extends React.PureComponent<EditorProps, EditorState>
     const editorContent = this._contentEditor.value;
 
     const nextExample = { ...example };
-    if (prevSection === Section.OPERATION) {
+    if (prevSection === 'Query') {
       nextExample.operation = editorContent;
-    } else if (prevSection === Section.RESPONSE) {
+    } else if (prevSection === 'Response') {
       try {
         nextExample.response = JSON.parse(editorContent);
       } catch (error) {
         alert(`Invalid JSON in response: ${error.message}`);
         return;
       }
-    } else if (prevSection === Section.SCHEMA) {
+    } else if (prevSection === 'Schema') {
       nextExample.schema = editorContent;
     }
 
