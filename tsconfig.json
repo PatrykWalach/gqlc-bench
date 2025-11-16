@@ -13,6 +13,7 @@
 			"dom",
 			"esnext.asynciterable"
 		],
+		"strictBindCallApply": true,
 		"alwaysStrict": true,
 		"skipLibCheck": true,
 		"module": "CommonJS",
