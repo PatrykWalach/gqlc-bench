@@ -16,7 +16,7 @@
     "dev": "rspack serve --config ./src/reporters/web/webpack.config.js",
     "update-pages": "./scripts/update-pages.sh",
     "release": "./scripts/release.sh",
-    "lint": "eslint --cache . --fix",
+    "lint": "oxlint --fix",
     "relay": "relay-compiler",
     "isograph": "iso"
   },
@@ -72,6 +72,7 @@
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-typescript": "^0.14.0",
     "html-webpack-plugin": "^5.5.0",
+    "oxlint": "^1.28.0",
     "prettier": "latest",
     "raw-loader": "^0.5.1",
     "ts-loader": "^4.4.1",
