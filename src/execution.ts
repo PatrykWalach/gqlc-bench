@@ -119,6 +119,12 @@ export async function _runSuite(
   reporter({ ...context.eventCommon, subject: Subject.SUITE, type: Type.END });
 }
 
+class UnknownError extends Error {
+  constructor(public cause: unknown){
+    super('Unknown error')
+  }
+}
+
 async function runClientBenchmark(
   context: Context,
   BenchmarkClass: BenchmarkConstructor,
@@ -169,7 +175,11 @@ async function runClientBenchmark(
       title,
       partials: partials.map(p => client.transformRawExample(p)),
     };
-  } catch (error) {
+  } catch (caught) {
+    let error: Error = new UnknownError(caught)
+    if (caught instanceof Error) {
+      error = caught
+    }
     context.failure = { error, phase: Phase.VERIFY };
   }
 
@@ -338,7 +348,11 @@ async function runSingleBenchmarkPass(
     await new Promise(resolve => setTimeout(resolve, 0));
 
     return { duration, memoryUsage: memoryReadings };
-  } catch (error) {
+  } catch (caught) {
+    let error: Error = new UnknownError(caught)
+    if (caught instanceof Error) {
+      error = caught
+    }
     context.failure = { error, phase };
     console.log('ERROR: ', error);
     return undefined;
