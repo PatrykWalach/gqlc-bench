@@ -68,15 +68,8 @@
     "@types/relay-compiler": "^14.0.3",
     "@types/relay-runtime": "^19.0.0",
     "@types/webpack-env": "^1.17.0",
-    "html-webpack-plugin": "^5.5.0",
     "oxlint": "^1.28.0",
-    "prettier": "latest",
-    "raw-loader": "^0.5.1",
-    "ts-loader": "^4.4.1",
-    "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^5.0.0",
-    "webpack-visualizer-plugin": "^0.1.11"
+    "prettier": "latest"
   },
   "engines": {
     "node": "24.11.1"
