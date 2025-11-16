@@ -41,6 +41,12 @@ jobs:
         with:
           name: report
           path: dist
+
+      - name: Deploy
+        run: yarn wrangler pages deploy --branch=${{ github.head_ref || github.ref_name  }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
   bench-cli:
     runs-on: ubuntu-latest
     name: CLI
