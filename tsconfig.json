@@ -18,6 +18,7 @@
 		"alwaysStrict": true,
 		"skipLibCheck": true,
 		"useUnknownInCatchVariables": true,
+		"noImplicitThis": true,
 		"module": "CommonJS",
 		"target": "es2017"
 	}
