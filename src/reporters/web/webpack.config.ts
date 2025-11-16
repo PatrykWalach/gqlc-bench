@@ -1,5 +1,5 @@
 import { defineConfig } from "@rspack/cli"
-import { rspack, HtmlRspackPlugin} from "@rspack/core"
+import { rspack, HtmlRspackPlugin } from "@rspack/core"
 import * as path from "path"
 // // Assert that we export values that conform to Webpack's configuration.
 // function assertValidConfiguration(config: webpack.Configuration) {}

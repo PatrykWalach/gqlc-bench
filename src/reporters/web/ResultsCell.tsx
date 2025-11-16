@@ -18,7 +18,7 @@ const MODES: { [key: string]: (args: { props: ResultsCellProps }) => boolean } =
   pending: ({ props }) => !props.phase && !props.stats,
   active: ({ props }) => !!props.phase && !props.complete,
   iterating: ({ props }) => !!props.stats && !props.complete,
-  complete: ({ props }) => props.complete,
+  complete: ({ props }) => !!props.complete,
   error: ({ props }) => !!props.failure,
 };
 

@@ -23,7 +23,7 @@ interface EditorState {
 }
 
 const MODES: { [key: string]: (args: { state?: EditorState }) => boolean } = {
-  mounted: ({ state }) => state && state.mounted,
+  mounted: ({ state }) => !!state?.mounted,
 };
 
 const STYLES = dapper.compile({
@@ -106,7 +106,7 @@ const STYLES = dapper.compile({
 export class ExampleEditor extends PureComponent<EditorProps, EditorState> {
   styles = dapper.reactTo(this, STYLES, MODES);
 
-  _contentEditor: HTMLTextAreaElement;
+  _contentEditor: HTMLTextAreaElement | null;
 
   constructor(props) {
     super(props);
@@ -218,13 +218,13 @@ export class ExampleEditor extends PureComponent<EditorProps, EditorState> {
       alert(`Unable to process your query/response/schema: ${error.message}`);
       return;
     }
-
+    // @ts-expect-error unreachable
     this.props.onChange(example);
   };
 
   private _mergeActiveEdits = () => {
     const { section: prevSection, example } = this.state;
-    const editorContent = this._contentEditor.value;
+    const editorContent = this._contentEditor?.value ?? '';
 
     const nextExample = { ...example };
     if (prevSection === Section.OPERATION) {

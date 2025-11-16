@@ -72,7 +72,7 @@ interface RelayFragmentExample extends Omit<RawFragment, "operation"> {
 interface RelayExample extends SingleExample {
 	operation: OperationDescriptor
 	variables?: object
-	relayArtifact: ConcreteRequest
+	relayArtifact?: ConcreteRequest
 	fragment?: RelayFragmentExample
 }
 
@@ -87,17 +87,17 @@ export class Relay extends Client {
 	})
 
 	transformRawExample(rawExample: RawExample): RelayExample {
-		const request = getRequest(rawExample.relayArtifact)
-		const operation = createOperationDescriptor(request, rawExample.variables)
+		const request = getRequest(rawExample.relayArtifact!)
+		const operation = createOperationDescriptor(request, rawExample.variables!)
 
-		let fragment: RelayFragmentExample
-		if ("fragment" in rawExample) {
+		let fragment: RelayFragmentExample | undefined
+		if (rawExample.fragment) {
 			const fragmentOwnerRequest = getRequest(
-				rawExample.fragment.ownerRelayArtifact
+				rawExample.fragment.ownerRelayArtifact!
 			)
 			const fragmentOwnerOperation = createOperationDescriptor(
 				fragmentOwnerRequest,
-				rawExample.variables
+				rawExample.variables!
 			)
 
 			fragment = {
@@ -116,7 +116,7 @@ export class Relay extends Client {
 		}
 	}
 
-	async read({ operation }: RelayExample) {
+	async read({ operation }: RelayExample): Promise<ReadResult<any>> {
 		const res = this._client.lookup(operation.fragment)
 		return !res.data || res.isMissingData ? { data: null } : { data: res.data }
 	}
@@ -124,12 +124,12 @@ export class Relay extends Client {
 	async readFragment(
 		{ fragment, variables }: RelayExample,
 		fragmentInstance: Fragment
-	): Promise<ReadResult<object>> {
+	): Promise<ReadResult<any>> {
 		const selector = createReaderSelector(
-			fragment.relayArtifact,
+			fragment!.relayArtifact!,
 			fragmentInstance.id,
-			variables,
-			fragment.operation.request
+			variables!,
+			fragment!.operation.request
 		)
 		const res = this._client.lookup(selector)
 		return !res.data || res.isMissingData ? { data: null } : { data: res.data }
