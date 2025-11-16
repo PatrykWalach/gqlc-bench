@@ -42,7 +42,7 @@ export default class UpdateTwentyFiveObservers extends Benchmark {
       const observer = this.observers[i];
       const updatedResponse = this.updatedResponses[i];
 
-      expect(observer.mostRecentResult().data, 'to satisfy', updatedResponse);
+      expect(observer.mostRecentResult()?.data, 'to satisfy', updatedResponse);
     }
   }
 

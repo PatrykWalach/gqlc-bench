@@ -23,7 +23,7 @@ export default class WriteWithHundredTwentyFiveObserversAndEmptyCache extends Be
     for (let i = 0; i < 125; i++) {
       const observer = this.observers[i];
       const { response } = this.example.partials[i % this.example.partials.length];
-      expect(observer.mostRecentResult().data, 'to satisfy', response);
+      expect(observer.mostRecentResult()?.data, 'to satisfy', response);
     }
   }
 

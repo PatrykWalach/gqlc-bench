@@ -23,7 +23,7 @@ export default class WriteWithTwentyFiveObserversAndEmptyCache extends Benchmark
     for (let i = 0; i < 25; i++) {
       const observer = this.observers[i];
       const { response } = this.example.partials[i];
-      expect(observer.mostRecentResult().data, 'to satisfy', response);
+      expect(observer.mostRecentResult()?.data, 'to satisfy', response);
     }
   }
 
