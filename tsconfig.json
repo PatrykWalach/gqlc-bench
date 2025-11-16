@@ -17,6 +17,7 @@
 		"strictBindCallApply": true,
 		"alwaysStrict": true,
 		"skipLibCheck": true,
+		"strictBuiltinIteratorReturn": true,
 		"module": "CommonJS",
 		"target": "es2017"
 	}
