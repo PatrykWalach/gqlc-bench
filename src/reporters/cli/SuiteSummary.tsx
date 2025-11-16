@@ -1,7 +1,7 @@
-import { Color, Component, Indent, renderToString } from 'ink';
+import { Color, Component, Indent } from 'ink';
 
-import { Table } from './Table';
 import { Summary } from '../../reporting';
+import * as Table from './Table';
 
 export class SuiteSummary extends Component<Summary> {
   render() {
@@ -19,10 +19,10 @@ export class SuiteSummary extends Component<Summary> {
           </div>
         </Indent>
         <div />
-        <Table>
+        <Table.Table>
           {this._renderHeader()}
           {this._renderRows()}
-        </Table>
+        </Table.Table>
       </div>
     );
   }
