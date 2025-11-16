@@ -9,5 +9,5 @@ declare module 'fast-random' {
     }
   }
 
-  export = fastRandom;
+  export default fastRandom;
 }

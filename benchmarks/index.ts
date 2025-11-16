@@ -1,11 +1,14 @@
-import { BenchmarkConstructor } from '../src';
+import { BenchmarkConstructor } from "../src"
 
 // Find and export all benchmarks in this directory (recursively)
-const benchmarkContext = require.context('.', true, /\.js$/);
+const benchmarkContext = import.meta.webpackContext(".", {
+	recursive: true,
+	regExp: /\.ts$/,
+})
 const benchmarks: BenchmarkConstructor[] = benchmarkContext
-  .keys()
-  .filter(path => !/(^|[\\/])index\.js$/.test(path))
-  .map(path => benchmarkContext(path))
-  .map(exports => exports.default);
+	.keys()
+	.filter((path) => !/(^|[\\/])index\.ts$/.test(path))
+	.map((path) => benchmarkContext(path))
+	.map((exports) => exports.default)
 
-export = benchmarks;
+export default benchmarks

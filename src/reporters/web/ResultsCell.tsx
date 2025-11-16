@@ -1,3 +1,4 @@
+import * as React from 'react'
 import * as dapper from '@convoy/dapper';
 import chroma from 'chroma-js';
 
