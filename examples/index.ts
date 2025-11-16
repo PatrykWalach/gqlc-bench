@@ -102,4 +102,4 @@ function isRawExample(value: any): value is RawExample {
   return value.title && value.operation && value.response && value.schema;
 }
 
-export = examples;
+export default examples;

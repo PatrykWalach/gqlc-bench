@@ -1,6 +1,6 @@
+import * as React from 'react'
 import { Component, renderToString } from 'ink';
 import LeTable from 'le-table';
-
 export class Table extends Component<Table.Props> {
   render() {
     const { children, ...options } = this.props;
