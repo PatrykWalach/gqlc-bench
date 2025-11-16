@@ -1,0 +1,1 @@
+{ "entry": ["./src/reporters/cli/entry.ts", "./src/reporters/web/entry.tsx"] }
