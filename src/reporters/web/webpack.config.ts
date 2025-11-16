@@ -1,6 +1,5 @@
 import { defineConfig } from "@rspack/cli"
-import { rspack } from "@rspack/core"
-import HtmlWebpackPlugin from "html-webpack-plugin"
+import { rspack, HtmlRspackPlugin} from "@rspack/core"
 import * as path from "path"
 // // Assert that we export values that conform to Webpack's configuration.
 // function assertValidConfiguration(config: webpack.Configuration) {}
@@ -39,7 +38,7 @@ const resolve = {
 
 const plugins = [
 	// https://github.com/jantimon/html-webpack-plugin#options
-	new HtmlWebpackPlugin({ title: `GraphQL Client Benchmarks` }),
+	new HtmlRspackPlugin({ title: `GraphQL Client Benchmarks` }),
 	new rspack.ProvidePlugin({ process: "process" }),
 	// Ignore Node-side polyfills that we depend upon.
 	new rspack.IgnorePlugin({
