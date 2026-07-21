@@ -6,8 +6,8 @@ __metadata:
   cacheKey: 8
 
 "@apollo/client@npm:^3.8.7":
-  version: 3.14.0
-  resolution: "@apollo/client@npm:3.14.0"
+  version: 3.14.1
+  resolution: "@apollo/client@npm:3.14.1"
   dependencies:
     "@graphql-typed-document-node/core": ^3.1.1
     "@wry/caches": ^1.0.0
@@ -37,7 +37,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 682a8c8103c80940ee89e0f5d6a5dba3d47dd6915b7016f4d19bcebabbe8c6d0d52ca9ff9598d50d4bc0711f8ef66b4f9b8e832494244bcdf3b91377e489e293
+  checksum: 62805a16e6720a4e032a09b4e78031ba91e5205ef9aadfe9330e5fddc020064bf1b9eec43c1629b3afcf785f0e2ca5d0b258c7c1b2371aff3aa3cc2d1fd3c7dc
   languageName: node
   linkType: hard
 
@@ -2664,13 +2664,13 @@ __metadata:
   linkType: soft
 
 "graphql-tag@npm:^2.12.6":
-  version: 2.12.6
-  resolution: "graphql-tag@npm:2.12.6"
+  version: 2.12.7
+  resolution: "graphql-tag@npm:2.12.7"
   dependencies:
     tslib: ^2.1.0
   peerDependencies:
-    graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: b15162a3d62f17b9b79302445b9ee330e041582f1c7faca74b9dec5daa74272c906ec1c34e1c50592bb6215e5c3eba80a309103f6ba9e4c1cddc350c46f010df
+    graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 0cccd9003cde18d266feb1f5a4fe5edc836276d4fbc9daae319a31b141566b37fea1e78ab4192934ca3bbc70eea343108ec3b174e700c60cf63a0aa2f2327065
   languageName: node
   linkType: hard
 
