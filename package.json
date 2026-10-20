@@ -24,7 +24,7 @@
   "bin": "./src/reporters/cli/entry.js",
   "main": "./src",
   "dependencies": {
-    "@apollo/client": "^3.8.7",
+    "@apollo/client": "^4.0.0",
     "@convoy/dapper": "^2.0.104",
     "@isograph/compiler": "main",
     "@isograph/react": "main",
